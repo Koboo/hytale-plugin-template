@@ -1,0 +1,19 @@
+{
+  "Group": "REPLACE_WITH_YOUR_GROUP_ID",
+  "Name": "REPLACE_WITH_YOUR_MOD_NAME",
+  "Version": "REPLACE_WITH_YOUR_VERSION",
+  "Description": "REPLACE_WITH_YOUR_DESCRIPTION",
+  "Authors": [
+    {
+      "Name": "REPLACE_WITH_YOUR_NAME",
+      "Email": "REPLACE_WITH_YOUR_EMAIL",
+      "Url": "REPLACE_WITH_YOUR_WEBSITE"
+    }
+  ],
+  "Website": "REPLACE_WITH_YOUR_MOD_WEBSITE",
+  "ServerVersion": "*",
+  "Dependencies": {},
+  "OptionalDependencies": {},
+  "DisabledByDefault": false,
+  "Main": "template.mod.TemplateMod"
+}
