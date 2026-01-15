@@ -3,7 +3,7 @@ pluginManagement {
         mavenLocal()
         maven {
             name = "entixReposilite"
-            url = uri("https://repo.enitx.eu/releases")
+            url = uri("https://repo.entix.eu/releases")
         }
         gradlePluginPortal()
     }
