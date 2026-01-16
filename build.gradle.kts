@@ -7,7 +7,7 @@ plugins {
     // So if you build this project with "shadowJar" the JAR file name will be:
     // "hytale-plugin-template-1.0.0-all.jar"
     id("com.gradleup.shadow") version("9.3.1")
-    id("eu.koboo.pluginmanifest") version("1.0.24")
+    id("eu.koboo.pluginmanifest") version("1.0.24-rc.1")
 }
 
 group = "eu.koboo"
@@ -27,11 +27,8 @@ dependencies {
 }
 
 pluginManifest {
-    // Here you can configure:
-    // 1. manifest.json generation properties
-    // 2. If and where your HytaleServer.jar is
-    //
-    // For more information see GitHub:
+    // Nothing to configure.
+    // The plugin already does most of the things for us. :)
     // https://github.com/Koboo/hytale-pluginmanifest
 }
 
@@ -61,6 +58,7 @@ sourceSets {
         java.setSrcDirs(listOf("src/java"))
         resources.setSrcDirs(listOf("src/resources"))
     }
+    // We don't need test sources, we test on the server itself.
     test {
         java.setSrcDirs(emptyList<String>())
         resources.setSrcDirs(emptyList<String>())
