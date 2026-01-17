@@ -2,6 +2,7 @@ package eu.koboo.myplugin;
 
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
+import eu.koboo.myplugin.commands.MyCommand;
 
 import javax.annotation.Nonnull;
 
@@ -13,7 +14,8 @@ public class MyPlugin extends JavaPlugin{
 
     @Override
     protected void setup() {
-        getLogger().atInfo().log("MyPlugin was successfully started!");
+        getCommandRegistry().registerCommand(new MyCommand());
+        getLogger().atInfo().log("MyPlugin was successfully setup!");
         super.setup();
     }
 
