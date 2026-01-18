@@ -1,7 +1,5 @@
 package eu.koboo.myplugin;
 
-import com.hypixel.hytale.common.plugin.PluginIdentifier;
-import com.hypixel.hytale.server.core.HytaleServer;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 import eu.koboo.myplugin.commands.GetPosCommand;
