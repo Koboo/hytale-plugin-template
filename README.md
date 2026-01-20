@@ -13,6 +13,10 @@ and added to your project as a dependency, done by the ``eu.koboo.pluginmanifest
 - [Advanced tutorials](#tutorials)
 - [ECS Cheatsheet](#entity-component-system-cheatsheet)
 
+## Quick tips
+
+- Enabled ``Diagnostics Mode`` in your client settings
+
 ## Useful links:
 
 - [Hytale Discord](https://discord.gg/hytale)
@@ -85,3 +89,21 @@ and added to your project as a dependency, done by the ``eu.koboo.pluginmanifest
 ### World
 
 - ``World world = Universe.get().getWorld(uuid);``
+- ``CompletableFuture<World> future = Universe.get().makeWorld(String name, Path savePath, WorldConfig worldConfig, boolean start);``
+
+### getNeabryEntities
+
+````java
+            Vector3d playerPos = playerTransform.getPosition().clone().add(0, modelcomponent.getModel().getEyeHeight(), 0);
+            List<Ref<EntityStore>> nearby = new ArrayList<>();
+            SpatialResource<Ref<EntityStore>, EntityStore> itemSpatialResource = commandBuffer.getResource(EntityModule.get().getItemSpatialResourceType());
+            itemSpatialResource.getSpatialStructure().collect(playerPos, ItemMagnet.INSTANCE.config.get().pickupRadius(), nearby);
+            for (Ref<EntityStore> entityStoreRef : nearby) {
+                TransformComponent entityPos = commandBuffer.getComponent(entityStoreRef, TransformComponent.getComponentType());
+                ItemComponent pickup = commandBuffer.getComponent(entityStoreRef, ItemComponent.getComponentType());
+                if (entityPos != null && pickup != null && pickup.canPickUp()) {
+                    entityPos.getPosition().assign(Vector3d.lerp(entityPos.getPosition(), playerPos, ItemMagnet.INSTANCE.config.get().moveSpeed()));
+                }
+            }
+````
+
